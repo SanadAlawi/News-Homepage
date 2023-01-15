@@ -1,0 +1,276 @@
+@font-face {
+    font-family: Inter;
+    src: url(assets/fonts/static/Inter-Regular.ttf);
+    font-weight: 400;
+}
+@font-face {
+    font-family: Inter;
+    src: url(assets/fonts/static/Inter-Bold.ttf);
+    font-weight: 700;
+}
+@font-face {
+    font-family: Inter;
+    src: url(assets/fonts/static/Inter-ExtraBold.ttf);
+    font-weight: 800;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter;
+    font-weight: 800;
+    transition: 0.5s;
+}
+
+:root{
+    --body-color: #fefdf9;
+    --primary-color: hsl(5, 85%, 63%);
+    --secondary-color: hsl(35, 77%, 62%);
+    --text-color: #8b8892;
+    --box-color: hsl(240, 100%, 5%);
+
+    --primary-padding: 5em;
+    --secondary-padding: 2em;
+
+    --primary-margin: 5em;
+    --secondary-margin: 2em;
+    --margin-1: 1em;
+
+
+    --navbar-height: 80px;
+
+    --super-title-font-size: 2.3rem;
+    --title-font-size: 1.5rem;
+    --sub-title-font-size: 1.2rem;
+}
+
+body{
+    background-color: var(--body-color);
+}
+
+/* REUSABLE CSS */
+a{
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 400;
+}
+.super-title{
+    font-size: var(--super-title-font-size);
+    text-transform: capitalize;
+    font-weight: bolder;
+}
+.title{
+    font-size: var(--title-font-size);
+    text-transform: capitalize;
+    font-weight: bolder;
+    color: #fff;
+}
+.sub-title{
+    font-size: var(--sub-title-font-size);
+    text-transform: capitalize;
+    font-weight: bolder;
+    color: #000;
+    cursor: pointer;
+}
+.sub-title:hover{
+    color: var(--primary-color);
+}
+.desc{
+    color: var(--text-color);
+    /* font-family: Inter; */
+    font-weight: 400;
+}
+.btn{
+    padding: 0.5em var(--secondary-padding);
+    background-color: var(--primary-color);
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+.btn:hover{
+    background-color: #000;
+}
+/* REUSABLE CSS END */
+
+
+
+/* NAVBAR CSS */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--navbar-height);
+    padding: 0 var(--primary-padding);
+}
+.navbar .logo{
+    font-size: var(--super-title-font-size);
+    cursor: pointer;
+    color: #000;
+    font-weight: bolder;
+}
+.navbar .menu{
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.navbar .menu li{
+    margin: 0 var(--margin-1);
+}
+.navbar .menu li a:hover{
+    color: var(--primary-color);
+}
+.navbar .open-menu,
+.navbar .menu .close-menu{
+    display: none;
+    cursor: pointer;
+}
+/* NAVBAR CSS END */
+
+
+
+/* SECTION CSS */
+section{
+    display: flex;
+    flex-direction: column;
+    gap: var(--primary-margin);
+    padding: var(--secondary-padding) var(--primary-padding);
+}
+
+.section .hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--secondary-margin);
+}
+
+.section .hero .left{
+    flex: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--secondary-margin);
+}
+.section .hero .left img{
+    width: 100%;
+    height: 40vh;
+}
+.section .hero .left .content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--secondary-margin);
+}
+.section .hero .left .content .super-title{
+    flex: 1;
+}
+.section .hero .left .content .info{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+    gap: 2em;
+}
+
+.section .hero .right{
+    flex: 40%;
+    padding: var(--secondary-padding);
+    background-color: var(--box-color);
+}
+.section .hero .right .super-title{
+    color: var(--secondary-color);
+    margin-bottom: var(--margin-1);
+}
+.section .hero .right .content{
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin-1);
+}
+.section .hero .right hr{
+    margin: var(--secondary-margin) 0;
+}
+
+.section .cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--secondary-margin);
+}
+.section .cards .card{
+    display: flex;
+    justify-content: space-between;
+    height: 20vh;
+    gap: var(--margin-1);
+}
+.section .cards .card .image{
+    flex: 1;
+    background-color: red;
+}
+.section .cards .card .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.section .cards .card .content{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin-1);
+}
+.section .cards .card .content .title{
+    color: #c7c6cd;
+    font-size: var(--super-title-font-size);
+}
+/* SECTION CSS END */
+
+
+
+
+@media only screen and (max-width: 710px) {
+    :root{
+        --primary-padding: 3em;
+    }
+    .navbar .menu{
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: #fff;
+        width: 60%;
+        clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+        padding: var(--primary-padding);
+    }
+    .navbar .menu.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .navbar .menu li{
+        margin: var(--secondary-margin) ;
+    }
+    .navbar .menu li a{
+        color: #000;
+    }
+
+    .navbar .open-menu,
+    .navbar .menu .close-menu{
+        display: inline-block;
+    }
+    .navbar .menu .close-menu{
+        position: absolute;
+        top: 3%;
+        right: 7%;
+    }
+}
+@media only screen and (max-width: 510px) {
+    :root{
+        --primary-padding: 1em;
+    }
+    .section .hero .left .content{
+        flex-direction: column;
+    }
+}
